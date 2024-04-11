@@ -112,15 +112,15 @@ jobs:
         tag_name: OpenWrt_${{ env.PACKAGED_OUTPUTDATE }}
         files: ${{ env.PACKAGED_OUTPUTPATH }}/*.img.xz
         body: |
-          首次使用建议全新刷写
-          * 基本信息
-          💻 机型: n1
+          🍁 注意事项：首次使用建议全新刷写
+          
+          💻 适用机型: 斐讯N1
 
           📂 源码: ${{ env.REPO_URL }}
 
           🌳 分支: ${{ env.REPO_BRANCH }}
 
-          ⏱️ 编译时间: $(date +"%Y年%m月%d日%H时%M分")
+          ⏱️ 编译时间: $(date +'%Y.%m.%d-%H%M')
 
           🌐 管理地址: 192.168.0.2
 
