@@ -107,21 +107,32 @@ jobs:
       uses: softprops/action-gh-release@master
       if: ${{ env.PACKAGED_STATUS == 'success' }} && !cancelled()
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         tag_name: OpenWrt_${{ env.PACKAGED_OUTPUTDATE }}
         files: ${{ env.PACKAGED_OUTPUTPATH }}/*.img.xz
         body: |
           首次使用建议全新刷写
           * 基本信息
-          IP: 192.168.2.2
-          账户: root
-          密码: password
+          💻 机型: n1
+
+          📂 源码: ${{ env.REPO_URL }}
+
+          🌳 分支: ${{ env.REPO_BRANCH }}
+
+          ⏱️ 编译时间: $(date +"%Y年%m月%d日%H时%M分")
+
+          🌐 管理地址: 192.168.0.2
+
+          👤 用户名: root
+
+          🔒 密码: password
+
 
     - name: Delete old releases
       uses: dev-drprasad/delete-older-releases@master
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         keep_latest: 2
         delete_tags : true
