@@ -3,6 +3,16 @@
 # Remove packages
 rm -rf feeds/packages/net/v2ray-geodata
 
+# Git稀疏克隆，只克隆指定目录到本地
+function git_sparse_clone() {
+  branch="$1" repourl="$2" && shift 2
+  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
+  repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
+  cd $repodir && git sparse-checkout set $@
+  mv -f $@ ../package
+  cd .. && rm -rf $repodir
+}
+
 # Add packages
 git clone -b js --single-branch https://github.com/gngpp/luci-theme-design package/luci-theme-design
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
