@@ -9,15 +9,15 @@ git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone --depth=1 https://github.com/ophub/luci-app-amlogic package/amlogic
 
+# 加入OpenClash核心
+chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
+$GITHUB_WORKSPACE/N1/preset-clash-core.sh
+
 echo "
 # 主题
 CONFIG_PACKAGE_luci-theme-design=y
 CONFIG_PACKAGE_luci-app-mosdns=y
 " >> .config
-
-# 上传mos配置文件
-cp -f $GITHUB_WORKSPACE/package/mosdns-v5/mosdns package/mosdns/luci-app-mosdns/root/etc/mosdns
-cp -f $GITHUB_WORKSPACE/package/mosdns-v5/mosdns/config/mosdns package/mosdns/luci-app-mosdns/root/etc/config/mosdns
 
 # 修改默认IP
 sed -i 's/192.168.1.1/192.168.0.2/g' package/base-files/files/bin/config_generate
@@ -29,8 +29,8 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 sed -i 's/ImmortalWrt/OpenWrt/g' package/base-files/files/bin/config_generate
 
 # 修改系统信息
-cp -f $GITHUB_WORKSPACE/99-default-settings package/emortal/default-settings/files/99-default-settings
-cp -f $GITHUB_WORKSPACE/banner package/base-files/files/etc/banner
+cp -f $GITHUB_WORKSPACE/N1/99-default-settings package/emortal/default-settings/files/99-default-settings
+cp -f $GITHUB_WORKSPACE/N1/banner package/base-files/files/etc/banner
 
 # 修改主题背景
 cp -f $GITHUB_WORKSPACE/argon/img/bg1.jpg feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
