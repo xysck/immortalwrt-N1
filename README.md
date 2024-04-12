@@ -2,6 +2,7 @@
 本固件适配斐讯 N1 旁路由模式，追求轻量（请注意：不具备 PPPoE、WiFi 相关功能）。<br>
 固件包含默认皮肤、完整 IPv6 支持，以及下列 luci-app：<br>
 - 添加 amlogic
+- 添加 dockerman
 - 添加 Mosdns
 - 添加 Pushbot
 - 添加 OpenClash
