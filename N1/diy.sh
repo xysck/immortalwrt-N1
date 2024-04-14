@@ -23,12 +23,12 @@ git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-pus
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-linkease linkease ffmpeg-remux
 
 # 加入OpenClash核心
-chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
-$GITHUB_WORKSPACE/N1/preset-clash-core.sh
+#chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
+#$GITHUB_WORKSPACE/N1/preset-clash-core.sh
 
 echo "
 # 主题
-CONFIG_PACKAGE_luci-theme-design=y
+#CONFIG_PACKAGE_luci-theme-design=y
 CONFIG_PACKAGE_luci-app-mosdns=y
 CONFIG_PACKAGE_luci-app-pushbot=y
 CONFIG_PACKAGE_luci-app-aliddns=y
@@ -40,6 +40,7 @@ sed -i 's/192.168.1.1/192.168.0.2/g' package/base-files/files/bin/config_generat
 
 # 修改默认主题
 sed -i 's/luci-theme-design/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
 # 修改主机名
 sed -i 's/ImmortalWrt/OpenWrt/g' package/base-files/files/bin/config_generate
