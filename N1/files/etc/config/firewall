@@ -1,6 +1,4 @@
 config defaults
-	option fullcone '1'
-	option fullcone6 '1'
 	option synflood_protect '1'
 	option drop_invalid '1'
 	option input 'ACCEPT'
