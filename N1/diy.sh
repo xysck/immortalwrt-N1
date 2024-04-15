@@ -21,7 +21,7 @@ git clone --depth=1 https://github.com/ophub/luci-app-amlogic package/amlogic
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-aliddns
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-pushbot
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-linkease linkease ffmpeg-remux
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-turboacc
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-turboacc
 
 # 加入OpenClash核心
 #chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
@@ -34,7 +34,7 @@ CONFIG_PACKAGE_luci-app-mosdns=y
 CONFIG_PACKAGE_luci-app-pushbot=y
 CONFIG_PACKAGE_luci-app-aliddns=y
 CONFIG_PACKAGE_luci-app-linkease=y
-CONFIG_PACKAGE_luci-app-turboacc=y
+#CONFIG_PACKAGE_luci-app-turboacc=y
 " >> .config
 
 # 修改默认IP
