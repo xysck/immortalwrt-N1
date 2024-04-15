@@ -66,12 +66,21 @@ plugins:
       files:
         - "/etc/mosdns/rule/hosts.txt"
 
+  # 缓存
+  - tag: lazy_cache
+    type: cache
+    args:
+      size: 1024
+      lazy_cache_ttl: 86400
+      dump_file: /etc/mosdns/cache.dump
+      dump_interval: 600
+
   # 转发至本地服务器
   - tag: forward_local
     type: forward
     args:
       upstreams:
-        - addr: "127.0.0.1:5553"
+        - addr: "223.5.5.5"
 
   # 转发至加密服务器
   - tag: forward_tls
@@ -158,6 +167,10 @@ plugins:
 
       # 匹配hosts
       - exec: $hosts
+      - exec: jump has_resp_sequence
+
+      # 匹配缓存
+      - exec: $lazy_cache
       - exec: jump has_resp_sequence
       
       # 域名重定向
