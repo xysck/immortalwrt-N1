@@ -54,7 +54,6 @@ domain:digicert.com
 domain:akamaiedge.net
 domain:phicdn.net
 full:status.rapidssl.com
-domain:alibabaokz.com
 domain:pushdeer.com
 full:cdn.fsn.yirujs.com
 #apple域名
@@ -63,4 +62,3 @@ full:gateway.fe2.apple-dns.net
 full:time.g.aaplimg.com
 full:time.apple.com
 full:me.apple-dns.net
-hk0061.alibabaokz.com
