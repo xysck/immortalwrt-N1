@@ -171,7 +171,6 @@ adjust_docker_config
 adjust_openssl_config
 adjust_getty_config
 adjust_samba_config
-adjust_openssh_config
 adjust_openclash_config
 use_xrayplug_replace_v2rayplug
 create_fstab_config
