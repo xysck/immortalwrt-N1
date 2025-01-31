@@ -27,16 +27,6 @@ git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-lin
 #chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
 #$GITHUB_WORKSPACE/N1/preset-clash-core.sh
 
-echo "
-# 插件
-CONFIG_PACKAGE_luci-theme-design=n
-CONFIG_PACKAGE_luci-app-mosdns=y
-CONFIG_PACKAGE_luci-app-pushbot=n
-CONFIG_PACKAGE_luci-app-aliddns=n
-CONFIG_PACKAGE_luci-app-linkease=y
-#CONFIG_PACKAGE_luci-app-turboacc=y
-" >> .config
-
 # 修改默认IP
 sed -i 's/192.168.1.1/192.168.1.254/g' package/base-files/files/bin/config_generate
 
